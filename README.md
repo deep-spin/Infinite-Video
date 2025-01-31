@@ -8,7 +8,7 @@ Official implementation of the paper **$\infty$-Video: A Training-Free Approach 
   <img src="./inf_video_llama.png" alt="Alt text" width="1000"/>
 </p>
 **Abstract**: *Current video-language models struggle with long-video understanding due to limited context lengths and reliance on sparse frame subsampling, often leading to information loss.
-This paper introduces $\infty$-Video, which can process arbitrarily long videos through a continuous-time long-term memory (LTM) consolidation mechanism. Our framework augments video Q-formers by allowing them to process unbounded video contexts efficiently and without requiring additional training. 
+This paper introduces ∞-Video, which can process arbitrarily long videos through a continuous-time long-term memory (LTM) consolidation mechanism. Our framework augments video Q-formers by allowing them to process unbounded video contexts efficiently and without requiring additional training. 
 Through continuous attention, our approach dynamically allocates higher granularity to the most relevant video segments, forming ``sticky'' memories that evolve over time. 
 Experiments with Video-LLaMA and VideoChat2 demonstrate improved performance in video question-answering tasks, showcasing the potential of continuous-time LTM mechanisms to enable scalable and training-free comprehension of long videos.*
 
@@ -20,32 +20,23 @@ Experiments with Video-LLaMA and VideoChat2 demonstrate improved performance in 
 
 ## Resources
 
-- [Paper](https://arxiv.org/abs/2411.08590) (arXiv)
+- [Paper](to add) (arXiv)
 
 All material is made available under the MIT license. You can **use, redistribute, and adapt** the material for **non-commercial purposes**, as long as you give appropriate credit by **citing our paper** and **indicating any changes** that you've made.
 
 
-## Synthetic, MNIST and Multiple Instance Learning Experiments
+## Video LLaMA
 ### Python requirements and installation
 
-This code was tested on `Python 3.10.10`. To install, follow these steps:
-
-1. In a virtual environment, first install Cython: `pip install cython`
-2. Clone the [Eigen](https://gitlab.com/libeigen/eigen.git) repository to the main folder: `git clone git@gitlab.com:libeigen/eigen.git`
-3. Clone the [LP-SparseMAP](https://github.com/nunonmg/lp-sparsemap) fork repository to main folder, and follow the installation instructions found there
-4. Install the requirements: `pip install -r requirements.txt`
-5. Run the corresponding scripts
+This code was tested on `Python 3.10.10`. To install, follow the steps of [moviechat](https://github.com/rese1f/MovieChat)
 
 ### Reproducibility
-#### Memory Retrieval Modeling
-
-Run the script `memory_retrieval_modeling.py`
-
-#### Image Retrieval
-Run the script `ME_plotting.py`
-
-#### MNIST MIL
-Run the script `MNIST_bags.py` with the desired parameters (nomenclature can be found in the beginning of the script)
+1 - Run ```eval_code/extract_features``` on the intended dataset with the desired number of frames.
+2 - Run each script in ```eval_code/eval``` with the hyperparameters mentioned in the paper:
+Example: 
+```
+ python3 eval_code/eval/run_inference_inf_video_llama_nextqa.py     --cfg-path eval_configs/infvideollama.yaml     --num-beams 1   --temperature 1 --video-folder next_qa/features --q-folder /mnt/scratch-artemis/saul/next_qa/val.csv     --output-dir /MovieChat/nextqa_val     --max_int 256    --num_basis 256  --tau 0.75  --alpha 1.0 --task inf_video_llama --sticky
+```
 
 #### Benchmarks MIL
 
