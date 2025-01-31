@@ -2,7 +2,7 @@
 # $\infty$-Video: A Training-Free Approach to Long Video Understanding via Continuous-Time Memory Consolidation
 Official implementation of the paper **$\infty$-Video: A Training-Free Approach to Long Video Understanding via Continuous-Time Memory Consolidation**.
 
-*Saul Santos*, *Vlad Niculae*, *Daniel McNamee* and *André Martins*
+*Saul Santos*, *António Farinhas*, *Daniel McNamee* and *André Martins*
 
 <p align="center">
   <img src="./inf_video_llama.png" alt="Alt text" width="1000"/>
