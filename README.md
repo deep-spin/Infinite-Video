@@ -48,25 +48,18 @@ python eval_code/validate/run_eval_langchain.py --pred_path egoschema/nframes_8_
 ```
 
 Then compute accuracy with ```run_eval.py```
-#### Benchmarks MIL
 
-Download and upzip the dataset
-
-```bash
-$ wget http://www.cs.columbia.edu/~andrews/mil/data/MIL-Data-2002-Musk-Corel-Trec9-MATLAB.tgz 
-```
-
-Run the script `MIL_Data_2002.py` with the desired parameters (nomenclature can be found in the beginning of the script)
-
-#### Countours and Basins of Attraction
-Run the scripts `countours.py` and `basins.py` 
-
-#### Metastable State Counting
-Run the script `MNIST_metastable.py`
-
-## Spectra Experiments
+## VideoChat2
 ### Python requirements and installation
-Follow the instructions of the branch in [hopfield-spectra](https://github.com/deep-spin/spectra-rationalization/tree/hopfield-spectra)
+Follow the instructions of [videochat2](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat2)
+
+### Reproducibility
+1 - Run each script in ```eval_code``` with the hyperparameters mentioned in the paper:
+Example: 
+```
+ python3 eval_code/run_nextqa_mistral.py  --video-folder  /NExTQA/videos --data_path /next_qa/val.csv --output-dir nextqa_val --max_int 16     --num_samples 8    --num_basis 64  --tau 0.75 --alpha 1.0
+
+```
 
 ## Acknowledgment
 
