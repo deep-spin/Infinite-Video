@@ -32,12 +32,22 @@ This code was tested on `Python 3.10.10`. To install, follow the steps of [movie
 
 ### Reproducibility
 1 - Run ```eval_code/extract_features``` on the intended dataset with the desired number of frames.
+
 2 - Run each script in ```eval_code/eval``` with the hyperparameters mentioned in the paper:
 Example: 
 ```
  python3 eval_code/eval/run_inference_inf_video_llama_nextqa.py     --cfg-path eval_configs/infvideollama.yaml     --num-beams 1   --temperature 1 --video-folder next_qa/features --q-folder /mnt/scratch-artemis/saul/next_qa/val.csv     --output-dir /MovieChat/nextqa_val     --max_int 256    --num_basis 256  --tau 0.75  --alpha 1.0 --task inf_video_llama --sticky
 ```
 
+3 - For open-ended questions run ```eval_code/validate/run_eval_qa_chatgpt.py```with the output of the moviechat script run.
+
+4 - For multiple-choice questions we predict the answers as open-ended and use langchain to select the most similar option, run ```eval_code/validate/run_eval_langchain.py```with the output from the dataset run script as:
+
+```
+python eval_code/validate/run_eval_langchain.py --pred_path egoschema/nframes_8_nchunks_256_moviechatplus/preds.json --num_tasks 100
+```
+
+Then compute accuracy with ```run_eval.py```
 #### Benchmarks MIL
 
 Download and upzip the dataset
