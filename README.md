@@ -20,7 +20,7 @@ Experiments with Video-LLaMA and VideoChat2 demonstrate improved performance in 
 
 ## Resources
 
-- [Paper](to add) (arXiv)
+- [Paper](https://arxiv.org/abs/2501.19098) (arXiv)
 
 All material is made available under the MIT license. You can **use, redistribute, and adapt** the material for **non-commercial purposes**, as long as you give appropriate credit by **citing our paper** and **indicating any changes** that you've made.
 
