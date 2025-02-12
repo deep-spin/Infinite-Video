@@ -13,10 +13,7 @@ from omegaconf import OmegaConf
 from InfVideoLLaMA.common.registry import registry
 from InfVideoLLaMA.models.base_model import BaseModel
 from InfVideoLLaMA.models.blip2 import Blip2Base
-from InfVideoLLaMA.models.moviechat import MovieChat
-from InfVideoLLaMA.models.moviechatplus import MovieChatPlus
 from InfVideoLLaMA.models.infinityqa import InfinityQA
-from InfVideoLLaMA.models.video_llama import VideoLLAMA
 from InfVideoLLaMA.processors.base_processor import BaseProcessor
 
 
@@ -24,7 +21,6 @@ __all__ = [
     "load_model",
     "BaseModel",
     "Blip2Base",
-    "MovieChat"
 ]
 
 
