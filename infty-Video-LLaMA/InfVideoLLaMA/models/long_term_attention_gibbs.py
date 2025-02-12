@@ -7,14 +7,11 @@ import torch.nn as nn
 from torch import Tensor
 import torch.distributions as dist
 
-from entmax import Sparsemax, Entmax15, EntmaxBisect
 from .basis_functions import (PowerBasisFunctions,
                                      SineBasisFunctions,
                                      CosineBasisFunctions,
                                      GaussianBasisFunctions,
                                      RetangularBasisFunctions)
-from .continuous_sparsemax import ContinuousSparsemax
-from .continuous_softmax import ContinuousSoftmax
 
 import math
 
