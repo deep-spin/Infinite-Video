@@ -194,7 +194,7 @@ class Chat:
             video_fragment = video_fragment.unsqueeze(0).to(self.device)
             self.model.encode_short_memory_frame(video_fragment, num_frames)
             video_emb, _ = self.model.encode_video(new_video=new_video)
-            video_embs = i*video_embs/(i+1) + video_emb/(c+1)
+            video_embs = i*video_embs/(i+1) + video_emb/(i+1)
         img_list= [video_embs] 
         return msg, img_list   
 
