@@ -399,13 +399,12 @@ def infer_mme(
             if args.baseline:
                 video_emb, _ = model.encode_img(video, system)
             else:
-                video_embs = []
+                video_embs = 0
                 new_video=True
                 for vid in video_chunks:
-                    video_emb, _ = model.encode_img(vid, system, new_video)
+                    video_embs, _ = model.encode_img(vid, system, new_video)
                     new_video=False
-                    video_embs.append(video_emb)
-                video_emb = torch.mean(torch.stack(video_embs), dim=0, keepdim=True).squeeze(0)
+                    video_emb = i*video_emb/(i+1) + video_embs/(i+1)
     video_list.append(video_emb)
 
     pred_list = []
