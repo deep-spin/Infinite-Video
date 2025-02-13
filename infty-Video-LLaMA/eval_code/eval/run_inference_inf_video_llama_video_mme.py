@@ -184,7 +184,7 @@ class Chat:
     def upload_video_without_audio(self, video_list, num_samples, num_frames=1):
         msg = ""
         new_video = True
-        video_embs = []
+        video_embs = 0
         print(output_dir)
         for i in range(num_samples):
             video_fragment = video_list[i]
@@ -194,10 +194,8 @@ class Chat:
             video_fragment = video_fragment.unsqueeze(0).to(self.device)
             self.model.encode_short_memory_frame(video_fragment, num_frames)
             video_emb, _ = self.model.encode_video(new_video=new_video)
-            video_embs.append(video_emb)
-            
-        video_emb = torch.mean(torch.stack(video_embs), dim=0, keepdim=True).squeeze(0)  # Shape: [1, 32, 4096]
-        img_list= [video_emb] 
+            video_embs = i*video_embs/(i+1) + video_emb/(c+1)
+        img_list= [video_embs] 
         return msg, img_list   
 
 
